@@ -1,13 +1,23 @@
 # warships game
 The "warships" training project
 
+<<<<<<< main_wiki
 
+=======
+![537086f55895b87c30433aec78b222eb](https://user-images.githubusercontent.com/121046700/215089555-f2919ddc-75bd-48b1-a594-00adfa9d4252.jpeg)
+>>>>>>> local
 
  :globe_with_meridians:Official site - it is still in development!!!
  
  :question: FAQ list
  
+<<<<<<< main_wiki
           Documentation   :book:
+=======
+  -:telephone_receiver: Contact phone `8919 700 11 56`
+ 
+ Documentation   :book:
+>>>>>>> local
 		  
    -version used Visual Studio 2022.
    
