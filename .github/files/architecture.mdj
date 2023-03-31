@@ -852,7 +852,7 @@
 											"top": 775,
 											"width": 263,
 											"height": 14,
-											"text": "+GetGameMenu(): void",
+											"text": "+PrintGameMenu(): void",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2534,7 +2534,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGGlzzsWrI2kqY="
 							},
-							"name": "GetGameMenu",
+							"name": "PrintGameMenu",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
