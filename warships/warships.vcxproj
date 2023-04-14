@@ -23,7 +23,6 @@
     <ClCompile Include="models\controller.cpp" />
     <ClCompile Include="models\deck.cpp" />
     <ClCompile Include="models\game.cpp" />
-    <ClCompile Include="models\i-database.cpp" />
     <ClCompile Include="models\i-user-inrerface.cpp" />
     <ClCompile Include="models\ship.cpp" />
   </ItemGroup>

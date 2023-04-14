@@ -27,9 +27,6 @@
     <ClCompile Include="models\game.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="models\i-database.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="models\i-user-inrerface.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
