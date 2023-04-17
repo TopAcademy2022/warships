@@ -9,12 +9,8 @@ class IUserInterface
 private:
 	Controller* _controller;
 
-	unsigned int _countMenuElements;
-
-	std::string _menuElements[];
-
 public:
-	IUserInterface(Controller* controller, unsigned int countMenuElements);
+	IUserInterface(Controller* controller);
 
 	void PrintGameMenu();
 
