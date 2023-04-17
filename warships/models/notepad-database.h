@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "models/i-database.h"
+#include "i-database.h"
 #include <fstream>
 
 class NotepadDatabase : public IDatabase

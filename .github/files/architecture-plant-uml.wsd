@@ -1,0 +1,74 @@
+@startuml
+
+class Deck{
+    -positionX: unsigned int
+    -positionY: unsigned int
+    -isAlive: bool
+    ____
+    +Deck(int positionX, int positionY, bool isAlive)
+    +GetPositionX(): unsigned int
+    +GetPositionY(): unsigned int
+    +GetIsAlive(): bool
+} 
+
+class Ship{
+    -decks: list<Deck*>
+    -shipSize: unsigned int
+    ____
+    +Ship(list<Deck*> decks, unsigned int shipSize)
+    +GetDecks(): list<Deck*>
+    +GetShipSize(): unsigned int
+
+} 
+
+class BattleField{
+    -ships: list<Ship*>
+    -countShips: unsigned int
+    ____
+    +Battlefield(list<Ship*> ships, unsigned int countShips)
+    +GetShips(): :list<Ship*>
+    +GetCountShips(): unsigned int 
+
+}
+
+class Game{
+    -battleFields[2]: BattleField*
+    ____
+    +GetBattleField(): BattleField*
+}
+
+class Controller{
+    -iDatabase: IDatabase*
+    -game: Game*
+    ____
+    +Controller()
+    +StartGame(): void
+}
+
+
+
+interface IDataBase{
+    +WriteDataToFile(): bool
+	+ReadDataFromFile(): bool
+}
+
+class UserInterface{
+    -baseController: BaseController*
+    -countMenuElements: unsigned int
+    -menuElements[countMenuElements]: string
+    ____
+    -CreateNewGame(): void
+    -LoadGame(): void
+    -SetSettings(): void
+    -Exit(): void
+    +PrintGameMenu(): void
+}
+
+Deck -* Ship
+Ship --* BattleField
+Game-*BattleField
+Game--*Controller
+Controller.* IDataBase
+Controller*- IDataBase
+IDataBase-*UserInterface
+@enduml
