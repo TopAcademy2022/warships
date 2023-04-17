@@ -1,7 +1,6 @@
 #pragma once
 
 
-#include <string>
 #include "controller.h"
 
 class IUserInterface
@@ -12,15 +11,15 @@ private:
 public:
 	IUserInterface(Controller* controller);
 
-	void PrintGameMenu();
+	virtual void PrintGameMenu() = 0;
 
-	void CreateNewGame();
+	virtual void CreateNewGame() = 0;
 
-	void LoadGame();
+	virtual void LoadGame() = 0;
 
-	void CreateNetworkGame();
+	virtual void CreateNetworkGame() = 0;
 
-	void SetSettings();
+	virtual void SetSettings() = 0;
 
-	void Exit();
+	virtual void Exit() = 0;
 };

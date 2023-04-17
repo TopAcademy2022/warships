@@ -2,5 +2,5 @@
 
 IUserInterface::IUserInterface(Controller* controller)
 {
-
+	this->_controller = controller;
 }
