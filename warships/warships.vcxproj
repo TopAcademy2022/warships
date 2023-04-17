@@ -20,19 +20,23 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="models\battlefield.cpp" />
+    <ClCompile Include="models\console-user-interface.cpp" />
     <ClCompile Include="models\controller.cpp" />
     <ClCompile Include="models\deck.cpp" />
     <ClCompile Include="models\game.cpp" />
     <ClCompile Include="models\i-user-interface.cpp" />
+    <ClCompile Include="models\notepad-database.cpp" />
     <ClCompile Include="models\ship.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="models\battlefield.h" />
+    <ClInclude Include="models\console-user-interface.h" />
     <ClInclude Include="models\controller.h" />
     <ClInclude Include="models\deck.h" />
     <ClInclude Include="models\game.h" />
     <ClInclude Include="models\i-database.h" />
     <ClInclude Include="models\i-user-interface.h" />
+    <ClInclude Include="models\notepad-database.h" />
     <ClInclude Include="models\ship.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
