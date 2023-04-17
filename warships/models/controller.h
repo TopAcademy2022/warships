@@ -1,13 +1,14 @@
 #pragma once
 
 
+#include <iostream>
 #include "i-database.h"
 #include "game.h"
 
 class Controller
 {
 private:
-	IDatabase* _iDatabase;
+	IDatabase* _IDatabase;
 
 	Game* _game;
 
