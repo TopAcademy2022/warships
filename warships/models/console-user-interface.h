@@ -1,14 +1,12 @@
 #pragma once
 
-
+#include <iostream>
 #include "i-user-interface.h"
+#include "game.h"
 
 class ConsoleUserInterface : public IUserInterface
 {
-public:
-	ConsoleUserInterface(Controller* controller) : IUserInterface(controller) {};
-
-	void PrintGameMenu() override;
+private:
 
 	void CreateNewGame() override;
 
@@ -19,4 +17,10 @@ public:
 	void SetSettings() override;
 
 	void Exit() override;
+
+public:
+	ConsoleUserInterface(Controller* controller) : IUserInterface(controller) {};
+
+	void PrintGameMenu() override;
+
 };
