@@ -1,8 +1,8 @@
 #include "notepad-database.h"
 
-bool NotepadDatabase::WriteDataToFile(std::string subdirectoryName, std::string fileName, std::string fileType)
+bool NotepadDatabase::WriteDataToFile(Game& game, std::string subdirectoryName, std::string fileName, std::string fileType)
 {
-	bool rezult = false;
+	bool result = false;
 
 	try
 	{
@@ -12,7 +12,7 @@ bool NotepadDatabase::WriteDataToFile(std::string subdirectoryName, std::string 
 			file << this->_dataOfShip;
 			file.close();
 
-			rezult = true;
+			result = true;
 
 			delete this->_dataOfShip;
 		}
@@ -22,24 +22,24 @@ bool NotepadDatabase::WriteDataToFile(std::string subdirectoryName, std::string 
 		ex.what();
 	}
 
-	return rezult;
+	return result;
 }
 
-bool NotepadDatabase::ReadDataFromFile(std::string subdirectoryName, std::string fileName, std::string fileType)
+bool NotepadDatabase::ReadDataFromFile(Game& game, std::string subdirectoryName, std::string fileName, std::string fileType)
 {
-	bool rezult = false;
+	bool result = false;
 	try
 	{
 		std::ifstream file = std::ifstream(subdirectoryName + "/" + fileName + "." + fileType);
 		file >> this->_dataOfShip;
 		file.close();
 
-		rezult = true;
+		result = true;
 	}
 	catch (const std::exception ex)
 	{
 		ex.what();
 	}
 
-	return rezult;
+	return result;
 }

@@ -10,7 +10,7 @@ private:
 	char* _dataOfShip;
 
 public:
-	bool WriteDataToFile(std::string subdirectoryName, std::string fileName, std::string fileType);
+	bool WriteDataToFile(Game& game, std::string subdirectoryName, std::string fileName, std::string fileType);
 
-	bool ReadDataFromFile(std::string subdirectoryName, std::string fileName, std::string fileType);
+	bool ReadDataFromFile(Game& game, std::string subdirectoryName, std::string fileName, std::string fileType);
 };
