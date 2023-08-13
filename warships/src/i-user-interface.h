@@ -9,9 +9,13 @@ private:
 	Controller* _controller;
 
 public:
-	IUserInterface(Controller* controller);
+	IUserInterface(IDatabase* iDatabase);
+
+	Controller* GetController();
 
 	virtual void PrintGameMenu() = 0;
+
+	virtual void PrintGameBattleField() = 0;
 
 	virtual void CreateNewGame() = 0;
 

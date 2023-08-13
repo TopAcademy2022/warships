@@ -7,8 +7,9 @@
 class ConsoleUserInterface : public IUserInterface
 {
 private:
-
 	void CreateNewGame() override;
+
+	void PrintGameBattleField() override;
 
 	void LoadGame() override;
 
@@ -19,8 +20,7 @@ private:
 	void Exit() override;
 
 public:
-	ConsoleUserInterface(Controller* controller) : IUserInterface(controller) {};
+	ConsoleUserInterface(IDatabase* iDatabase) : IUserInterface(iDatabase) {};
 
 	void PrintGameMenu() override;
-
 };

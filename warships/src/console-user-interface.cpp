@@ -51,7 +51,37 @@ void ConsoleUserInterface::PrintGameMenu()
 
 void ConsoleUserInterface::CreateNewGame()
 {
-	
+	// TODO: Refactor this method
+	battlefield::ShipDeploymentMode firstPlayerInitShipsMode = battlefield::ShipDeploymentMode::AutomaticMode;
+	battlefield::ShipDeploymentMode secondPlayerInitShipsMode = battlefield::ShipDeploymentMode::AutomaticMode;
+
+	Game* newGame = new Game(firstPlayerInitShipsMode, secondPlayerInitShipsMode);
+	this->GetController()->InitGame(newGame);
+	this->PrintGameBattleField();
+}
+
+void ConsoleUserInterface::PrintGameBattleField()
+{
+	// TODO: Refactor this method
+	std::list<battlefield::Battlefield*> battlefieldsList = this->GetController()->GetGame()->GetBattlefields();
+	battlefield::Battlefield* battlefieldFirstPlayer = *battlefieldsList.begin();
+
+	std::list<ship::Ship*> shipsListFirstPlayer = battlefieldFirstPlayer->GetShips();
+
+	for (auto ship : shipsListFirstPlayer)
+	{
+		std::list<Deck*> decksListOfShip = ship->GetDecks();
+
+		for (auto deck : decksListOfShip)
+		{
+			// As example
+			if (deck->GetIsAlive())
+			{
+				std::cout << deck->GetPositionX() << std::endl;
+				std::cout << deck->GetPositionY() << std::endl;
+			}
+		}
+	}
 }
 
 void ConsoleUserInterface::LoadGame()
