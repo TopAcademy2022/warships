@@ -14,3 +14,5 @@ The "warships" training project
  2. Choose a convenient cloning method;
  3. Copy the link to the clipboard;
  4. Download the project to your workstation using the previously copied link (item 3).
+
+
