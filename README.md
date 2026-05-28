@@ -3,14 +3,14 @@ The "warships" training project
 	
 ![Баннер](.github/images/warships-logo.jpg)
 
-# Архитектура
-	1. Актуальная архитектура проекта хранится по пути ".github/files/".
-	2. Архитектура представляет из себя файл созданный в программе StarUML.
+# Architecture
+	1. The current architecture of the project is stored along the path ".github/files/".
+	2. Аarchitecture is a file created in a program StarUML.
 
-## Ссылка на файл с архитектурой [UML](.github/files/architecture.mdj)
+## link to the file with the architecture [UML](.github/files/architecture.mdj)
 
-# Для работы с репозиторием:
-	1. На главной странице проекта найти на панели кнопку "Code";
-	2. Выбрать удобный способ клонирования;
-	3. Копировать ссылку в буфер обмена;
-	4. Выкачать себе на рабочую станцию проект по ранее скопированной ссылке (пункт 3).
+# To work with the repository:
+	1. On the project's main page, find the "Code" button on the toolbar;
+	2. Select a convenient cloning method;
+	3. Copy the link to the clipboard;
+	4. Download the project to your workstation using the previously copied link (step 3).
