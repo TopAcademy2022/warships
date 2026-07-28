@@ -1,6 +1,13 @@
 #include <iostream>
 
+#include "src/console-user-interface.h"
+#include "src/notepad-database.h"
+
 int main()
 {
-	std::cout << "Hello warships!";
+	NotepadDatabase database;
+	ConsoleUserInterface menu(database);
+
+	menu.PrintGameMenu();
+	return 0;
 }

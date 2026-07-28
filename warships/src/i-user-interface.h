@@ -6,12 +6,18 @@
 class IUserInterface
 {
 private:
-	Controller* _controller;
+	Controller _controller;
 
 public:
-	IUserInterface(Controller* controller);
+	explicit IUserInterface(IDatabase& iDatabase);
+
+	virtual ~IUserInterface() = default;
+
+	Controller& GetController();
 
 	virtual void PrintGameMenu() = 0;
+
+	virtual void PrintGameBattleField() = 0;
 
 	virtual void CreateNewGame() = 0;
 
