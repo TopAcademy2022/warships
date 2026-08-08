@@ -73,27 +73,40 @@ void ConsoleUserInterface::CreateNewGame()
 void ConsoleUserInterface::PrintGameBattleField()
 {
 	Game* game = this->GetController().GetGame();
-	if (game == nullptr || game->GetBattlefields().empty())
+	if (game == nullptr)
 	{
 		std::cout << " The game has not been created" << std::endl;
 		return;
 	}
 
-	const battlefield::Battlefield& battlefieldFirstPlayer = game->GetBattlefields().front();
-	std::cout << "\n Player 1 battlefield" << std::endl;
-
-	for (const logic::Ship& ship : battlefieldFirstPlayer.GetShips())
+	const auto& battlefields = game->GetBattlefields();
+	if(battlefields.empty())
 	{
-		std::cout << " " << static_cast<unsigned int>(ship.GetShipType()) << "-deck ship:";
+		std::cout << " The battlefield has not been created" << std::endl;
+		return;
+	}
 
-		for (const logic::Cell& deck : ship.GetDecks())
+	int playerNumber = 1;
+	for(const auto& battlefield : battlefields)
+	{
+		std::cout << "\n Player " << playerNumber << " battlefield" << std::endl;
+		for (const logic::Ship& ship : battlefield.GetShips())
 		{
-			std::cout << " (" << deck.GetPositionX() << ", " << deck.GetPositionY() << ")";
-			if (deck.GetIsHit())
-				std::cout << " hit";
-		}
 
-		std::cout << std::endl;
+			std::cout << " " << static_cast<unsigned int>(ship.GetShipType()) << "-deck ship:";
+
+			for (const logic::Cell& deck : ship.GetDecks())
+			{
+				std::cout << " (" << deck.GetPositionX() << ", " << deck.GetPositionY() << ")";
+				if (deck.GetIsHit())
+				{
+					std::cout << " hit";
+				}
+		    }
+
+			std::cout << std::endl;
+		}
+		playerNumber++;
 	}
 }
 
