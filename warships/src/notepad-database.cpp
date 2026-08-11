@@ -7,6 +7,14 @@
 
 namespace
 {
+	std::string ToLower(const std::string& str)
+	{
+		std::string lower = str;
+		std::transform(lower.begin(), lower.end(), lower.begin(),
+			[](unsigned char c) { return std::tolower(c); });
+		return lower;
+	}
+
 	std::string GetFileExtension(const std::string& fileName)
 	{
 		size_t dotPos = fileName.find_last_of('.');
@@ -32,13 +40,25 @@ namespace
 		}
 
 		path += databaseFileName;
+
 		if (!databaseFileType.empty())
 		{
-			if (databaseFileType.front() != '.')
+			std::string cleanType = databaseFileType;
+			if (cleanType.front() == '.')
 			{
-				path.push_back('.');
+				cleanType = cleanType.substr(1);
 			}
-			path += databaseFileType;
+
+			std::string existingExtension = GetFileExtension(databaseFileName);
+
+			if (existingExtension.empty() || ToLower(existingExtension) != ToLower(cleanType))
+			{
+				if (databaseFileType.front() != '.')
+				{
+					path.push_back('.');
+				}
+				path += cleanType;
+			}
 		}
 
 		return path;
