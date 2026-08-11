@@ -2,9 +2,21 @@
 
 #include <fstream>
 #include <sstream>
+#include <algorithm>
+#include <cctype> 
 
 namespace
 {
+	std::string GetFileExtension(const std::string& fileName)
+	{
+		size_t dotPos = fileName.find_last_of('.');
+		if (dotPos == std::string::npos || dotPos == 0 || dotPos == fileName.length() - 1)
+		{
+			return std::string();
+		}
+		return fileName.substr(dotPos + 1);
+	}
+
 	std::string BuildFilePath(const std::string& subdirectoryName,
 		const std::string& databaseFileName, const std::string& databaseFileType)
 	{
