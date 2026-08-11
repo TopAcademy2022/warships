@@ -79,21 +79,26 @@ void ConsoleUserInterface::PrintGameBattleField()
 		return;
 	}
 
-	const battlefield::Battlefield& battlefieldFirstPlayer = game->GetBattlefields().front();
-	std::cout << "\n Player 1 battlefield" << std::endl;
+	const auto& battlefields = game->GetBattlefields();
+	int playerNumber = 1;
 
-	for (const logic::Ship& ship : battlefieldFirstPlayer.GetShips())
+	for (const auto& battlefield : battlefields)
 	{
-		std::cout << " " << static_cast<unsigned int>(ship.GetShipType()) << "-deck ship:";
+		std::cout << "\n Player " << playerNumber << " battlefield" << std::endl;
 
-		for (const logic::Cell& deck : ship.GetDecks())
+		for (const logic::Ship& ship : battlefield.GetShips())
 		{
-			std::cout << " (" << deck.GetPositionX() << ", " << deck.GetPositionY() << ")";
-			if (deck.GetIsHit())
-				std::cout << " hit";
+			std::cout << " " << static_cast<unsigned int>(ship.GetShipType()) << "-deck ship:";
+			for (const logic::Cell& deck : ship.GetDecks())
+			{
+				std::cout << " (" << deck.GetPositionX() << ", " << deck.GetPositionY() << ")";
+				if (deck.GetIsHit())
+					std::cout << " hit";
+			}
+			std::cout << std::endl;
 		}
 
-		std::cout << std::endl;
+		++playerNumber;
 	}
 }
 
