@@ -89,12 +89,14 @@ void ConsoleUserInterface::PrintGameBattleField()
 		for (const logic::Ship& ship : battlefield.GetShips())
 		{
 			std::cout << " " << static_cast<unsigned int>(ship.GetShipType()) << "-deck ship:";
+
 			for (const logic::Cell& deck : ship.GetDecks())
 			{
 				std::cout << " (" << deck.GetPositionX() << ", " << deck.GetPositionY() << ")";
 				if (deck.GetIsHit())
 					std::cout << " hit";
 			}
+
 			std::cout << std::endl;
 		}
 
