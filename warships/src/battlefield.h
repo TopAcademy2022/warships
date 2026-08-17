@@ -1,5 +1,8 @@
 #pragma once
 
+#include <list>
+#include <random>
+#include <vector>
 
 #include "ship.h"
 #include "cell.h"
@@ -25,10 +28,18 @@ namespace battlefield
 
 		void InitShipsManualMode();
 
-		void InitShipsAutomaticMode();
+		void InitShipsAutomaticMode(std::mt19937& rng);
+
+		bool CanPlaceShip(const std::list<logic::Cell>& candidateCells) const;
+
+		bool TryGenerateShips(std::mt19937& rng);
+
+		void RebuildEmptyCells();
 
 	public:
 		explicit Battlefield(ShipDeploymentMode shipDeploymentMode = AutomaticMode);
+
+		Battlefield(ShipDeploymentMode shipDeploymentMode, unsigned int seed);
 
 		std::list<logic::Ship>& GetShips();
 
