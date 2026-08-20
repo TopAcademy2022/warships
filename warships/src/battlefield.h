@@ -11,6 +11,8 @@ namespace battlefield
 		ManualMode = 0,
 		AutomaticMode = 1
 	};
+	enum class ShotResult { Miss, Hit, Sunk, Repeated, Invalid, Victory };
+	enum class CellState { Water, IntactShip, Missed, Hit };
 
 	class Battlefield
 	{
@@ -18,6 +20,8 @@ namespace battlefield
 		std::list<logic::Cell> _emptyCells;
 
 		std::list<logic::Ship> _ships;
+
+		std::list<logic::Cell> _missedCells;
 
 		logic::Ship* FindShipByCell(const logic::Cell& cell);
 
@@ -33,5 +37,8 @@ namespace battlefield
 		std::list<logic::Ship>& GetShips();
 
 		const std::list<logic::Ship>& GetShips() const;
+
+		ShotResult FireAt(unsigned int x, unsigned int y);
+		CellState GetCellState(unsigned int x, unsigned int y) const;
 	};
 }
