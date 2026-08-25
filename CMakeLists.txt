@@ -34,3 +34,18 @@ if(MSVC)
 else()
     target_compile_options(Warships PRIVATE -Wall -Wextra -Wpedantic)
 endif()
+
+option(BUILD_TESTS "Build tests" ON)
+
+if(BUILD_TESTS)
+    # Пытаемся найти Google Test
+    find_package(GTest QUIET)
+    if(GTest_FOUND)
+        # Добавляем поддиректорию с тестами
+        add_subdirectory(tests)
+        message(STATUS "Tests will be built")
+    else()
+        message(STATUS "Google Test not found, tests will not be built")
+        message(STATUS "Install Google Test to enable tests")
+    endif()
+endif()
